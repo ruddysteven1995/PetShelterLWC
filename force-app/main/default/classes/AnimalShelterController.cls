@@ -2,7 +2,7 @@ public with sharing class AnimalShelterController {
     
     public static String DOG_API_URL = Animal_Shelter_Settings__c.getOrgDefaults().Dog_Breed_API__c;
 
-    // Call external API and retrieve all the dogs breeds available to be shown in the user interface
+    // Call external API and retrieve all the dogs breeds available to be shown in the user interfaceof 
     @AuraEnabled(cacheable=true)
     public static List<breedsPicklist> getDogBreedList(){
         List<breedsPicklist> result = new List<breedsPicklist>();
@@ -52,6 +52,7 @@ public with sharing class AnimalShelterController {
                                     ];
             return result;
         } catch (Exception e) {
+            system.debug('Error: is ' + e.getMessage());
             throw new AuraHandledException(e.getMessage());
         }
     }
