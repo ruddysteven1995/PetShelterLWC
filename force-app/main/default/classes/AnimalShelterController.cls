@@ -53,6 +53,7 @@ public with sharing class AnimalShelterController {
             return result;
         } catch (Exception e) {
             system.debug('Some error goes here');
+            system.debug('something failed, so bad, try again ' );
             throw new AuraHandledException(e.getMessage());
         }
     }
