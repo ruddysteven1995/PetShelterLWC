@@ -39,7 +39,7 @@ public with sharing class AnimalShelterController {
         }
     }
 
-    // Get the animals list to display in the main page
+    // Get the animals list to display in the main page 
     @AuraEnabled(cacheable=true)
     public static List<Animal__c> getAnimalsList(){
         try {
@@ -52,6 +52,7 @@ public with sharing class AnimalShelterController {
                                     ];
             return result;
         } catch (Exception e) {
+            system.debug('Some error goes here');
             throw new AuraHandledException(e.getMessage());
         }
     }
