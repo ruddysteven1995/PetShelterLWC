@@ -1,0 +1,16 @@
+{
+    "status": 0,
+    "result": {
+      "id": "00DHs000003UYwMMAW",
+      "accessToken": "00DHs000003UYwM!ARUAQLgaCoEaglt1KRPQFUg__86wHV5qypHsT_FOYovX.daKyaKDh8oywsDkPb_QffeUfHaxj56obLp3id3H31wRNi44ETPP",
+      "instanceUrl": "https://stecorp-dev-ed.develop.my.salesforce.com",
+      "username": "stevengalindo95@hotmail.com",
+      "clientId": "PlatformCLI",
+      "connectedStatus": "Connected",
+      "sfdxAuthUrl": "force://PlatformCLI::5Aep861gY_GaRUlGccZjd_NR7W5LGzHD_QwIPIdv9dYeP71Bx1DYXRKSpkNi.F2Ln.A7sjEmiQZiNayifhLbXyQ@stecorp-dev-ed.develop.my.salesforce.com",
+      "alias": "StevenTestProject"
+    },
+    "warnings": [
+      "apiVersion configuration overridden at \"57.0\""
+    ]
+  }
