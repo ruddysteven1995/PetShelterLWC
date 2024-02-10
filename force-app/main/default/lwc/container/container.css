@@ -1,0 +1,12 @@
+.main-background {
+    background: white;
+}
+
+.button-color {
+    --slds-c-button-brand-color-background: #3bcf56; 
+    --slds-c-button-brand-color-border: #3bcf56; 
+    --slds-c-button-brand-color-background-hover: #3bcf56;
+    --slds-c-button-brand-color-border-hover: #3bcf56; 
+    --slds-c-button-brand-text-color: white; 
+    --slds-c-button-brand-color-background-active: #27bf43fa;
+}

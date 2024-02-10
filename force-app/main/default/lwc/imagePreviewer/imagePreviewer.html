@@ -1,0 +1,18 @@
+<template>
+    <div class="">
+        <lightning-layout horizontal-align="center" multiple-rows="">
+            <template lwc:if={isLoading}>
+                <lightning-layout-item padding="around-large" size="12">
+                    <div class="slds-is-relative">
+                        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                    </div>
+                </lightning-layout-item>
+            </template>
+            <template lwc:else>
+                <lightning-layout-item size="12">
+                    <img src={imageURL} class="img-portrait photo-frame" alt="image preview"> 
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </div>
+</template>

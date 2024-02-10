@@ -1,0 +1,19 @@
+.img-portrait {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.photo-frame {
+    background: #fff;
+    padding: 30px;
+    border-style: solid;
+    border-width: 15px;
+    border-top-color: lighten(#000, 20%);
+    border-right-color: lighten(#000, 0%);
+    border-bottom-color: lighten(#000, 20%);
+    border-left-color: lighten(#000, 0%);
+    box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+}

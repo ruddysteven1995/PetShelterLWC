@@ -1,0 +1,32 @@
+<template>
+    <div class="main-background">
+        <lightning-layout horizontal-align="center" multiple-rows >
+            <lightning-layout-item padding="around-small" size="12">
+                <lightning-button 
+                    variant="brand" 
+                    label="Register Animal" 
+                    title="Register Animal" 
+                    class="button-color"
+                    onclick={handleCreateNewAnimal}>
+                </lightning-button>
+            </lightning-layout-item>
+            <template lwc:if={isLoading}>
+                <lightning-layout-item padding="around-small" size="12">
+                    <div class="slds-is-relative">
+                        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                    </div>
+                </lightning-layout-item>
+            </template>
+            <lightning-layout-item padding="around-small" size="12">
+                <c-animals-for-adoption onsendanimalrecords={handleGetAnimalRecords}></c-animals-for-adoption>
+            </lightning-layout-item>
+            <template lwc:if={showEmptyHeader}>
+                <lightning-layout-item padding="around-small" size="12">
+                    <div class="slds-align_absolute-center">
+                        <p>No animals registered yet. </p>
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </div>
+</template>

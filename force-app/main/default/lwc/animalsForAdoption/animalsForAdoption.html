@@ -1,0 +1,91 @@
+<template>
+    <lightning-layout vertical-align="center" multiple-rows >
+        <template lwc:if={showButtons}>
+            <lightning-layout-item padding="around-small" size="12">
+                <div class="slds-align_absolute-center">
+                    <lightning-combobox
+                        name="Type__c"
+                        label="Type"
+                        placeholder="Select Type"
+                        options={typeOptions}
+                        class="filter-width"
+                        onchange={handleChangeFilter}>
+                    </lightning-combobox>
+
+                    <lightning-combobox
+                        name="Status__c"
+                        label="Status"
+                        placeholder="Select Status"
+                        options={statusOptions}
+                        class="filter-width"
+                        onchange={handleChangeFilter}>
+                    </lightning-combobox>
+                </div>
+            </lightning-layout-item>
+        </template>
+        <template for:each={recordsToDisplay} for:item="animal">
+            <lightning-layout-item padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3" key={animal.Id}>
+                <article class="slds-card card-hover">
+                    <div class="slds-card__body card-margin">
+                        <img class="img-responsive" src={animal.Photo_URL__c}>
+                        <lightning-layout vertical-align="center" multiple-rows>
+                            <lightning-layout-item padding="around-small" size="12" small-device-size="8" medium-device-size="8" large-device-size="8">
+                                <h1 class="slds-p-horizontal_small card-title upppercase-text">{animal.Name__c}</h1>
+                                <p class="slds-p-horizontal_small card-first-subtitle">{animal.Sex__c} {animal.Type__c}</p>
+                                <p lwc:if={animal.Breed__c} class="slds-p-horizontal_small card-second-subtitle upppercase-text">{animal.Breed__c}</p>
+                                <p class="slds-p-horizontal_small card-second-subtitle">{animal.Age_Range__c}</p>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small" size="12" small-device-size="4" medium-device-size="4" large-device-size="4">
+                                
+                                <template iterator:it={animal.Animal_Details__r}>
+                                    <div key={it.value.Id} >
+                                        <div class="slds-float_right" lwc:if={it.first}>
+                                            <div lwc:if={it.value.Presentation__c}>
+                                                Read More
+                                                <lightning-helptext icon-name="utility:preview"
+                                                                    content={it.value.Presentation__c}>
+                                                </lightning-helptext>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                                <lightning-button   label="Edit" 
+                                                    title="Edit" 
+                                                    variant="brand"
+                                                    icon-name="utility:edit"
+                                                    onclick={handleViewMoreDetails} 
+                                                    data-id={animal.Id}
+                                                    class="detail-button slds-float_right">
+                                </lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </article>
+            </lightning-layout-item>
+        </template>
+        <template lwc:if={showButtons}>
+            <lightning-layout-item padding="around-small" size="12">
+                <div class="slds-align_absolute-center">
+                    <lightning-button   variant="neutral"
+                                        title="Prev"
+                                        label="Prev"
+                                        icon-name="utility:chevronleft"
+                                        icon-position="left"
+                                        disabled={disablePrevious}
+                                        class="slds-p-around_xx-small"
+                                        onclick={handlePrevPage}>
+                    </lightning-button>
+                    <lightning-button   variant="neutral"
+                                        title="Next"
+                                        label="Next"
+                                        icon-name="utility:chevronright"
+                                        icon-position="right"
+                                        disabled={disableNext}
+                                        class="slds-p-around_xx-small"
+                                        onclick={handleNextPage}>
+                    </lightning-button>
+                </div>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

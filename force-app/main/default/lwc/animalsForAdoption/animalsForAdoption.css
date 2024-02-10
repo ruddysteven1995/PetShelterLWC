@@ -1,0 +1,78 @@
+.detail-button {
+    --slds-c-button-brand-color-background: #3bcf56; 
+    --slds-c-button-brand-color-border: #3bcf56; 
+    --slds-c-button-brand-color-background-hover: #3bcf56;
+    --slds-c-button-brand-color-border-hover: #3bcf56; 
+    --slds-c-button-brand-text-color: white; 
+    --slds-c-button-brand-color-background-active: #27bf43fa;
+}
+
+.img-responsive {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-margin {
+    margin-top: 0px !important;
+}
+
+.card-title {
+    font-size: 1.5em !important;
+    color: #2ECC71;
+    font-weight: 800;
+}
+
+.upppercase-text {
+    text-transform: uppercase;
+}
+
+.card-first-subtitle {
+    font-weight: 400;
+}
+
+.card-second-subtitle {
+    font-weight: 200;
+}
+
+.card-hover {
+    display: block;
+    top: 0px;
+    position: relative;
+    border-radius: 4px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    border: 1px solid #f2f8f9;
+    transition: all 0.3s ease-out;
+}
+.card-hover:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.card-hover:before {
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #00838d;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
+}
+.card-hover:hover:before {
+    transform: scale(2.15);
+}
+
+.filter-width {
+    width: 12%;
+    display:inline-block;
+}

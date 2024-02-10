@@ -1,0 +1,39 @@
+<template>
+    <lightning-record-edit-form object-api-name={animalObjectApiName} record-id={animalRecordId} 
+                                onsubmit={handleSubmit} onsuccess={handleSuccessAnimal} 
+                                onerror={handleError} data-id="animalForm">
+        <lightning-modal-header label={title}></lightning-modal-header>
+        <lightning-modal-body>
+            <template for:each={animalFields} for:item="field">
+                <lightning-input-field key={field} field-name={field} onchange={handleFieldChange}></lightning-input-field>
+            </template>
+            <template lwc:if={showDogBreed}>
+                <lightning-combobox
+                    name="Breed"
+                    label="Breed"
+                    value={dogBreedSelected}
+                    placeholder="Select a Breed"
+                    options={dogsBreedList}
+                    onchange={handleChangeComboBox}>
+                </lightning-combobox>
+            </template>
+            <template lwc:else>
+                <lightning-input-field field-name='Breed__c'></lightning-input-field>
+            </template>
+            
+            <h1>More Details</h1>
+            <lightning-record-edit-form object-api-name={detailObjectApiName} record-id={detailRecordId} data-id="detailForm"> 
+                <template for:each={detailFields} for:item="field">
+                    <lightning-input-field key={field} field-name={field} data-id="detailFields"></lightning-input-field>
+                </template>
+                <!-- Animal Id For Detail (hidden) -->
+                <lightning-input-field field-name="Animal_Id__c" data-id="animalId" class="hidden" ></lightning-input-field>
+            </lightning-record-edit-form>
+        
+        </lightning-modal-body>
+        <lightning-modal-footer>
+            <lightning-button variant="Neutral" label="Cancel" class="slds-m-horizontal_xx-small" onclick={handleCancel}></lightning-button>
+            <lightning-button variant="brand" label="Save" type="submit"></lightning-button>
+        </lightning-modal-footer>
+    </lightning-record-edit-form>
+</template>
