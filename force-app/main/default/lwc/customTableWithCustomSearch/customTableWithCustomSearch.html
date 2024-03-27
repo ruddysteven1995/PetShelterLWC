@@ -1,0 +1,62 @@
+<template>
+    <lightning-layout vertical-align="center" multiple-rows>
+        <lightning-layout-item padding="around-small" size="12">
+            <div class="slds-is-relative" if:true={loadData}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="10">
+            <lightning-input 
+                    name="enter-search"
+                    label="Search"
+                    onchange={handleSearchInputChange} 
+                    type="search">
+            </lightning-input>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="2">
+            <div class="padding-top">
+                <lightning-button 
+                        variant="brand" 
+                        label="Search" 
+                        title="Search" 
+                        onclick={handleSearch}>
+                </lightning-button>
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="12">
+            <lightning-datatable
+                    key-field="Id"
+                    columns={columns}
+                    data={recordsToDisplay}
+                    hide-checkbox-column>
+            </lightning-datatable>
+        </lightning-layout-item>
+    
+        <lightning-layout-item padding="around-small" size="12">
+            <div class="slds-align_absolute-center" if:true={showButtons}>
+                <lightning-button   variant="neutral"
+                                    title="Prev"
+                                    label="Prev"
+                                    icon-name="utility:chevronleft"
+                                    icon-position="left"
+                                    disabled={disablePrevious}
+                                    class="slds-p-around_xx-small"
+                                    onclick={handlePrevPage}>
+                </lightning-button>
+                <lightning-button   variant="neutral"
+                                    title="Next"
+                                    label="Next"
+                                    icon-name="utility:chevronright"
+                                    icon-position="right"
+                                    disabled={disableNext}
+                                    class="slds-p-around_xx-small"
+                                    onclick={handleNextPage}>
+                </lightning-button>
+            </div>
+        </lightning-layout-item>
+    
+    </lightning-layout>
+</template>

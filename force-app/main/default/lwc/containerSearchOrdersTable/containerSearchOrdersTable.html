@@ -1,0 +1,21 @@
+<template>
+    <lightning-layout vertical-align="center" multiple-rows>
+        <lightning-layout-item padding="around-small" size="12">
+            <span class="slds-card__header-title slds-truncate slds-align_absolute-center">Situation 1 - Orders List</span>
+            <c-custom-table data-id="orderTableSimpleSearch" 
+                columns={orderColumns}
+                record-data={orderData} 
+                do-search=true>
+            </c-custom-table>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="12">
+            <span class="slds-card__header-title slds-truncate slds-align_absolute-center">Situation 2 - Orders List</span>
+            <c-custom-table-with-custom-search data-id="orderTableCustomSearch" 
+                            columns={orderColumns} 
+                            record-data={orderDataCustomSearch}
+                            onsearchvalue={handleCustomSearch}>
+            </c-custom-table-with-custom-search>
+        </lightning-layout-item>
+    </lightning-layout>    
+</template>
