@@ -1,0 +1,25 @@
+<template>
+    <lightning-layout vertical-align="center" multiple-rows >
+        <lightning-layout-item padding="around-small" size="6">
+            <span class="slds-card__header-title slds-truncate slds-align_absolute-center">Order Overview</span>
+            <c-custom-table data-id="orderTable" 
+                columns={orderColumns} 
+                sorted-by={orderSortedBy}
+                sorted-direction={orderSortedDirection}
+                onsortrecords={handleSortOrderRecords} 
+                record-data={orderData}>
+            </c-custom-table>
+        </lightning-layout-item>
+
+        <lightning-layout-item padding="around-small" size="6">
+            <span class="slds-card__header-title slds-truncate slds-align_absolute-center">Quote Overview</span>
+            <c-custom-table data-id="quoteTable" 
+                            columns={quoteColumns} 
+                            sorted-by={quoteSortedBy}
+                            sorted-direction={quoteSortedDirection}
+                            onsortrecords={handleSortQuoteRecords} 
+                            record-data={quoteData}>
+            </c-custom-table>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
